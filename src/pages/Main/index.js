@@ -10,10 +10,26 @@ import { Container } from './styles';
 
 const DATA = data.categories;
 
+const carouselImages = [
+  require("../../assets/img/pizza_square.png"),
+  require("../../assets/img/cafe_square.png"),
+  require("../../assets/img/japanese_square.png"),
+  require("../../assets/img/burger_square.png"),
+  require("../../assets/img/vegetarian_square.png")
+];
+
+const restaurantsImages = [
+  require("../../assets/img/outback.png"),
+  require("../../assets/img/abbraccio.png"),
+  require("../../assets/img/gero.png"),
+  require("../../assets/img/pobre_juan.png"),
+  require("../../assets/img/divinofogao.png"),
+]
+
 _renderItem = ({item, index}) => {
   return (
       <View style={styles.slide}>
-          {/* <Image style={styles.carouselImage} source={}/> */}
+          <Image style={styles.carouselImage} source={carouselImages[index]}/>
           <Text style={styles.title}>{ item.name }</Text>
       </View>
   );
@@ -56,7 +72,7 @@ export default class Main extends Component {
         />
       </View>
       <TouchableOpacity onPress={this.handleNavigate}>
-        <Restaurantes /> 
+        <Restaurantes image={restaurantsImages[0]}/> 
       </TouchableOpacity>
     </Container>
     );
