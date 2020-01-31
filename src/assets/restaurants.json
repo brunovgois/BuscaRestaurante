@@ -1,0 +1,76 @@
+{
+  "categories": [
+    {
+      "name": "Pizza",
+      "image": "img/pizza_square.png"
+    },
+    {
+      "name": "Cafés",
+      "image": "img/cafe_square.png"
+    },
+    {
+      "name": "Japonesa",
+      "image": "img/japanese_square.png"
+    },
+    {
+      "name": "Burger",
+      "image": "img/burger_square.png"
+    },
+    {
+      "name": "Vegetariano",
+      "image": "img/vegetarian_square.png"
+    }
+  ],
+  "list": [
+    {
+      "name": "Outback Steakhouse",
+      "type": "Steakhouse",
+      "price": 4,
+      "distance": 500,
+      "neigborhood": "Lago Norte",
+      "rating": 9.0,
+      "comment": "O atendimento é sensacional e a comida maravilhosa. Recomendo!",
+      "image": "img/outback.png"
+    },
+    {
+      "name": "Abbraccio Cucina Italiana",
+      "type": "Italian",
+      "price": 3,
+      "distance": 1200,
+      "neigborhood": "Asa Norte",
+      "rating": 6.6,
+      "comment": "Adorei a comida.",
+      "image": "img/abbraccio.png"
+    },
+    {
+      "name": "Gero",
+      "type": "Italian",
+      "price": 2,
+      "distance": 1500,
+      "neigborhood": "Asa Sul",
+      "rating": 8.2,
+      "comment": "Preço justo e muita variedade!",
+      "image": "img/gero.png"
+    },
+    {
+      "name": "Pobre Juan",
+      "type": "Steakhouse",
+      "price": 1,
+      "distance": 1740,
+      "neigborhood": "Taguatinga",
+      "rating": 8.5,
+      "comment": "Churrasco muito bom! Ótimo ambiente para família.",
+      "image": "img/pobre_juan.png"
+    },
+    {
+      "name": "Divino Fogão",
+      "type": "Comida caseira",
+      "price": 3,
+      "distance": 1890,
+      "neigborhood": "Lago Sul",
+      "rating": 7.0,
+      "comment": "Variedade excelente de comida.",
+      "image": "img/divinofogão.png"
+    },
+  ]
+}
