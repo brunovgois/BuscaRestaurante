@@ -9,6 +9,7 @@ import Restaurantes from '../../components/Restaurantes';
 import { Container } from './styles';
 
 const DATA = data.categories;
+const infoRestaurants = data.list;
 
 const carouselImages = [
   require("../../assets/img/pizza_square.png"),
@@ -72,7 +73,11 @@ export default class Main extends Component {
         />
       </View>
       <TouchableOpacity onPress={this.handleNavigate}>
-        <Restaurantes image={restaurantsImages[0]}/> 
+        <Restaurantes image={restaurantsImages[0]} infoRestaurants={infoRestaurants[0]} />
+        <Restaurantes image={restaurantsImages[1]} infoRestaurants={infoRestaurants[1]} />
+        <Restaurantes image={restaurantsImages[2]} infoRestaurants={infoRestaurants[2]} />
+        <Restaurantes image={restaurantsImages[3]} infoRestaurants={infoRestaurants[3]} />
+        <Restaurantes image={restaurantsImages[4]} infoRestaurants={infoRestaurants[4]} /> 
       </TouchableOpacity>
     </Container>
     );
@@ -80,7 +85,7 @@ export default class Main extends Component {
 }
 
 const styles = StyleSheet.create({
-  slide: {
+  slide: { 
     height: 100,
     justifyContent: 'center'
   },

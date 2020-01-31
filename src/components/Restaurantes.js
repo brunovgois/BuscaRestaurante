@@ -9,32 +9,46 @@ export default class Restaurantes extends Component {
     super(props);
   }
 
+  displayPrice() {
+    const { price } = this.props.infoRestaurants;
+    console.log(price);
+      return (
+        <>
+          <Icon name="dollar-sign" color={price === 0 ? "#A0A0A0" : "#717171"}/>
+          <Icon name="dollar-sign" color={price <= 1 ? "#A0A0A0" : "#717171"}/>
+          <Icon name="dollar-sign" color={price <= 2 ? "#A0A0A0" : "#717171"}/>
+          <Icon name="dollar-sign" color={price <= 3 ? "#A0A0A0" : "#717171"}/>
+        </>
+      );
+
+  }
+
   render() {
+    const {name, type, neigborhood, rating, comment} = this.props.infoRestaurants;
+    const { image } = this.props;
+
     return(
       <>
         <View style={styles.container}>
-          <Image style={styles.image} source={this.props.image} />
+          <Image style={styles.image} source={image} />
           <View style={styles.info}>
-            <Text style={styles.name}>Outback Steakhouse</Text>
+          <Text style={styles.name}>{name}</Text>
             <View style={styles.typeGrade}>
-              <Text style={styles.secondaryTextColor}>Steakhouse</Text>
+            <Text style={styles.secondaryTextColor}>{type}</Text>
               <View style={styles.icons}>
-                <Icon name="dollar-sign"/>
-                <Icon name="dollar-sign"/>
-                <Icon name="dollar-sign"/>
-                <Icon name="dollar-sign" color="#A0A0A0"/>
+                { this.displayPrice() }
               </View>
             </View>
 
             <View style={styles.distanceLocation}>
               <Text>1.5 km</Text>
-              <Text>Lago Norte</Text>
+              <Text>{neigborhood}</Text>
             </View>
           </View>
 
-          <Text style={styles.grade}>9,0</Text>
+          <Text style={styles.grade}>{rating}</Text>
         </View>
-        <Text style={styles.review}>"O atendimento é sensacional e a comida maravilhosa. Recomendo"</Text>
+    <Text style={styles.review}>"{comment}"</Text>
       </>
     )
   }
