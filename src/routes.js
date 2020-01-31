@@ -10,13 +10,6 @@ const Routes = createAppContainer(
     Main,
     Login,
     Cadastro,
-  }, {
-    defaultNavigationOptions: {
-      headerStyle: {
-        backgroundColor: '#03dbfc',
-      },
-      headerTintColor: '#fc6203' 
-    },
   }),
 );
 
