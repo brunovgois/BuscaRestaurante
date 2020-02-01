@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { Text, View, StyleSheet, Image, ScrollView } from 'react-native';
 
 import IonIcon from 'react-native-vector-icons/Ionicons';
 import Carousel from 'react-native-snap-carousel';
@@ -72,13 +72,14 @@ export default class Main extends Component {
           itemWidth={150}
         />
       </View>
-      <TouchableOpacity onPress={this.handleNavigate}>
-        <Restaurantes image={restaurantsImages[0]} infoRestaurants={infoRestaurants[0]} />
-        <Restaurantes image={restaurantsImages[1]} infoRestaurants={infoRestaurants[1]} />
-        <Restaurantes image={restaurantsImages[2]} infoRestaurants={infoRestaurants[2]} />
-        <Restaurantes image={restaurantsImages[3]} infoRestaurants={infoRestaurants[3]} />
-        <Restaurantes image={restaurantsImages[4]} infoRestaurants={infoRestaurants[4]} /> 
-      </TouchableOpacity>
+      {/* TODO remove scrollable bar */}
+        <ScrollView> 
+          <Restaurantes image={restaurantsImages[0]} infoRestaurants={infoRestaurants[0]} navigateTo={this.handleNavigate} />
+          <Restaurantes image={restaurantsImages[1]} infoRestaurants={infoRestaurants[1]} navigateTo={this.handleNavigate}/>
+          <Restaurantes image={restaurantsImages[2]} infoRestaurants={infoRestaurants[2]} navigateTo={this.handleNavigate}/>
+          <Restaurantes image={restaurantsImages[3]} infoRestaurants={infoRestaurants[3]} navigateTo={this.handleNavigate}/>
+          <Restaurantes image={restaurantsImages[4]} infoRestaurants={infoRestaurants[4]} navigateTo={this.handleNavigate}/> 
+        </ScrollView>
     </Container>
     );
   }

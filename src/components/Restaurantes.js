@@ -7,11 +7,10 @@ import Icon from 'react-native-vector-icons/Feather';
 export default class Restaurantes extends Component {
   constructor(props) {
     super(props);
-  }
+  } 
 
   displayPrice() {
     const { price } = this.props.infoRestaurants;
-    console.log(price);
       return (
         <>
           <Icon name="dollar-sign" color={price === 0 ? "#A0A0A0" : "#717171"}/>
@@ -25,10 +24,10 @@ export default class Restaurantes extends Component {
 
   render() {
     const {name, type, neigborhood, rating, comment} = this.props.infoRestaurants;
-    const { image } = this.props;
+    const { image, navigateTo } = this.props;
 
     return(
-      <>
+      <TouchableOpacity onPress={navigateTo}>
         <View style={styles.container}>
           <Image style={styles.image} source={image} />
           <View style={styles.info}>
@@ -48,8 +47,8 @@ export default class Restaurantes extends Component {
 
           <Text style={styles.grade}>{rating}</Text>
         </View>
-    <Text style={styles.review}>"{comment}"</Text>
-      </>
+        <Text style={styles.review}>"{comment}"</Text>
+      </TouchableOpacity>
     )
   }
 }
@@ -95,8 +94,8 @@ const styles = StyleSheet.create({
     justifyContent: "space-between"
   },
   image: {
-    width: 100,
-    height: 100
+    width: 90,
+    height: 90
   },
   secondaryTextColor: {
     color: "#717171"
