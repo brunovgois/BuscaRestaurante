@@ -60,7 +60,7 @@ export default class Main extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <View style={{height: 100}}>
+        <View>
           <Carousel
             ref={c => {
               this._carousel = c;
@@ -68,7 +68,9 @@ export default class Main extends Component {
             data={DATA}
             renderItem={_renderItem}
             sliderWidth={600}
-            itemWidth={150}
+            itemWidth={280}
+            slideStyle={{ width: 100 }}
+            sliderWidth={340}
           />
         </View>
         <ScrollView showsVerticalScrollIndicator={false}>
