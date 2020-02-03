@@ -25,7 +25,7 @@ This project uses the following third-party dependecies:
 
 
 ### TODOs
-- remove the deprecated prop `header: null` of navigationOptions of Login Page
+- remove deprecated prop `header: null` of navigationOptions of Login Page
 - Add Telefone placeholder at Cadastro Page
 - Use redux to save user Email after Login
 - improve carousel styling at Main Page
