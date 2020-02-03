@@ -1,103 +1,130 @@
-import React, { Component } from 'react'
-import { Text, View, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import React, {Component} from 'react';
+import {Text, View, StyleSheet, Image, TouchableOpacity} from 'react-native';
 
 import Icon from 'react-native-vector-icons/Feather';
-
 
 export default class Restaurantes extends Component {
   constructor(props) {
     super(props);
-  } 
-
-  displayPrice() {
-    const { price } = this.props.infoRestaurants;
-      return (
-        <>
-          <Icon name="dollar-sign" color={price === 0 ? "#A0A0A0" : "#717171"}/>
-          <Icon name="dollar-sign" color={price <= 1 ? "#A0A0A0" : "#717171"}/>
-          <Icon name="dollar-sign" color={price <= 2 ? "#A0A0A0" : "#717171"}/>
-          <Icon name="dollar-sign" color={price <= 3 ? "#A0A0A0" : "#717171"}/>
-        </>
-      );
-
   }
 
   render() {
-    const {name, type, neigborhood, rating, comment} = this.props.infoRestaurants;
-    const { image, navigateTo } = this.props;
+    const {
+      name,
+      type,
+      neigborhood,
+      rating,
+      comment,
+      distance,
+      price,
+    } = this.props.infoRestaurants;
+    const {image, navigateTo} = this.props;
 
-    return(
+    return (
       <TouchableOpacity onPress={navigateTo}>
         <View style={styles.container}>
           <Image style={styles.image} source={image} />
+
           <View style={styles.info}>
-          <Text style={styles.name}>{name}</Text>
-            <View style={styles.typeGrade}>
-            <Text style={styles.secondaryTextColor}>{type}</Text>
-              <View style={styles.icons}>
-                { this.displayPrice() }
+            <Text style={styles.name}>{name}</Text>
+
+            <View style={styles.details}>
+              <View style={styles.typeDistance}>
+                <Text style={styles.secondaryTextColor}>{type}</Text>
+                <Text>{this.displayDistance(distance)}</Text>
+              </View>
+
+              <View style={styles.gradeLocation}>
+                <View style={styles.icons}>{this.displayGrade(price)}</View>
+                <Text>{neigborhood}</Text>
               </View>
             </View>
-
-            <View style={styles.distanceLocation}>
-              <Text>1.5 km</Text>
-              <Text>{neigborhood}</Text>
-            </View>
           </View>
-
-          <Text style={styles.grade}>{rating}</Text>
+          <Text style={[this.getGradeStyle(rating), styles.rating]}>
+            {rating.toFixed(1)}
+          </Text>
         </View>
         <Text style={styles.review}>"{comment}"</Text>
       </TouchableOpacity>
-    )
+    );
+  }
+
+  getGradeStyle(rating) {
+    if (rating >= 9) return {backgroundColor: '#3CCD36'};
+    else if (rating >= 8 && rating < 9) return {backgroundColor: '#93CD36'};
+    else if (rating >= 7 && rating < 8) return {backgroundColor: '#CBCD36'};
+    else if (rating < 7) return {backgroundColor: '#CD6136'};
+  }
+
+  displayGrade(price) {
+    return (
+      <>
+        <Icon name="dollar-sign" color={price === 0 ? '#A0A0A0' : '#717171'} />
+        <Icon name="dollar-sign" color={price <= 1 ? '#A0A0A0' : '#717171'} />
+        <Icon name="dollar-sign" color={price <= 2 ? '#A0A0A0' : '#717171'} />
+        <Icon name="dollar-sign" color={price <= 3 ? '#A0A0A0' : '#717171'} />
+      </>
+    );
+  }
+
+  displayDistance(distance) {
+    if (distance < 1000) {
+      return <Text>{distance} m</Text>;
+    } else {
+      return <Text>{(distance / 1000).toFixed(1)} km</Text>;
+    }
   }
 }
 
-
 const styles = StyleSheet.create({
-  container: {
-    borderTopWidth: 1,
-    borderTopColor: "#E0E0E0",
-    flexDirection: "row",
-    padding: 10,
-    justifyContent: "space-between"
-  },
-  grade: {
-    backgroundColor: "#3CCD36",
-    borderRadius: 5,
+  rating: {
+    borderRadius: 6,
     fontSize: 15,
     height: 25,
     width: 25,
-    textAlign: "center"
+    textAlign: 'center',
+  },
+  container: {
+    borderTopWidth: 1,
+    borderTopColor: '#E0E0E0',
+    flexDirection: 'row',
+    padding: 10,
+    justifyContent: 'space-between',
   },
   name: {
-    color: "#D06600" ,
-    fontSize: 18
+    color: '#D06600',
+    fontSize: 18,
+    marginLeft: 5,
   },
   review: {
-    color: "#717171"
+    color: '#717171',
+    marginLeft: 12,
   },
   info: {
-   
+    flex: 1,
   },
   icons: {
-    flexDirection: "row",
-    marginRight: 25,
-    marginTop: 5
+    flexDirection: 'row',
+    marginTop: 5,
   },
-  typeGrade: {
-    flexDirection: "row",
-    justifyContent: "space-between"
+  typeDistance: {},
+  gradeLocation: {
+    width: 80,
   },
-  distanceLocation: {
-    flexDirection: "row",
-    justifyContent: "space-between"
+  details: {
+    flexDirection: 'row',
+    padding: 5,
+    justifyContent: 'space-between',
+    marginRight: 20,
   },
   image: {
-    width: 90,
-    height: 90
+    width: 70,
+    height: 70,
+    shadowColor: 'black',
+    shadowRadius: 5,
+    shadowOffset: {width: 2, height: 2},
   },
   secondaryTextColor: {
-    color: "#717171"
-  }
+    color: '#717171',
+  },
 });
