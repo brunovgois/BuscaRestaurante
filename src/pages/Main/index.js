@@ -1,112 +1,133 @@
-import React, { Component } from 'react';
-import { Text, View, StyleSheet, Image, ScrollView } from 'react-native';
+import React, {Component} from 'react';
+import {Text, View, StyleSheet, Image, ScrollView} from 'react-native';
 
 import IonIcon from 'react-native-vector-icons/Ionicons';
 import Carousel from 'react-native-snap-carousel';
 import LinearGradient from 'react-native-linear-gradient';
 import * as data from '../../assets/restaurants.json';
 import Restaurantes from '../../components/Restaurantes';
-import { Container } from './styles';
 
 const DATA = data.categories;
 const infoRestaurants = data.list;
 
 const carouselImages = [
-  require("../../assets/img/pizza_square.png"),
-  require("../../assets/img/cafe_square.png"),
-  require("../../assets/img/japanese_square.png"),
-  require("../../assets/img/burger_square.png"),
-  require("../../assets/img/vegetarian_square.png")
+  require('../../assets/img/pizza_square.png'),
+  require('../../assets/img/cafe_square.png'),
+  require('../../assets/img/japanese_square.png'),
+  require('../../assets/img/burger_square.png'),
+  require('../../assets/img/vegetarian_square.png'),
 ];
 
 const restaurantsImages = [
-  require("../../assets/img/outback.png"),
-  require("../../assets/img/abbraccio.png"),
-  require("../../assets/img/gero.png"),
-  require("../../assets/img/pobre_juan.png"),
-  require("../../assets/img/divinofogao.png"),
-]
+  require('../../assets/img/outback.png'),
+  require('../../assets/img/abbraccio.png'),
+  require('../../assets/img/gero.png'),
+  require('../../assets/img/pobre_juan.png'),
+  require('../../assets/img/divinofogao.png'),
+];
 
 _renderItem = ({item, index}) => {
   return (
-      <View style={styles.slide}>
-          <Image style={styles.carouselImage} source={carouselImages[index]}/>
-          <Text style={styles.title}>{ item.name }</Text>
-      </View>
+    <View style={styles.slide}>
+      <Image style={styles.carouselImage} source={carouselImages[index]} />
+      <Text style={styles.title}>{item.name}</Text>
+    </View>
   );
-}
+};
 
 export default class Main extends Component {
-
   handleNavigate = () => {
-    const { navigation } = this.props;
-
+    const {navigation} = this.props;
+    console.log(navigation);
     navigation.navigate('Login');
-  }
+  };
 
   static navigationOptions = {
     header: () => (
       <View
         style={{
-          height: 50
+          height: 60,
         }}>
-        <LinearGradient colors={["#D06600", "#E69A09"]} style={styles.gradient}>
-          <IonIcon name="ios-menu" color="#fff" size={30}/>
-          <Text style={{color: "#FFF", fontSize: 20}}>Restaurantes</Text>
-          <IonIcon name="ios-options" color="#fff" size={30}/>
+        <LinearGradient colors={['#D06600', '#E69A09']} style={styles.gradient}>
+          <IonIcon name="ios-menu" color="#fff" size={30} />
+          <Text style={{color: '#FFF', fontSize: 20}}>Restaurantes</Text>
+          <IonIcon name="ios-options" color="#fff" size={30} />
         </LinearGradient>
       </View>
-    )
-
-}
+    ),
+  };
 
   render() {
-    return(
-    <Container>
-      <View style={{height: 100}}>
-        <Carousel
-          ref={(c) => { this._carousel = c; }}
-          data={DATA}
-          renderItem={_renderItem}
-          sliderWidth={600}
-          itemWidth={150}
-        />
-      </View>
-      {/* TODO remove scrollable bar */}
-        <ScrollView> 
-          <Restaurantes image={restaurantsImages[0]} infoRestaurants={infoRestaurants[0]} navigateTo={this.handleNavigate} />
-          <Restaurantes image={restaurantsImages[1]} infoRestaurants={infoRestaurants[1]} navigateTo={this.handleNavigate}/>
-          <Restaurantes image={restaurantsImages[2]} infoRestaurants={infoRestaurants[2]} navigateTo={this.handleNavigate}/>
-          <Restaurantes image={restaurantsImages[3]} infoRestaurants={infoRestaurants[3]} navigateTo={this.handleNavigate}/>
-          <Restaurantes image={restaurantsImages[4]} infoRestaurants={infoRestaurants[4]} navigateTo={this.handleNavigate}/> 
+    return (
+      <View style={styles.container}>
+        <View style={{height: 100}}>
+          <Carousel
+            ref={c => {
+              this._carousel = c;
+            }}
+            data={DATA}
+            renderItem={_renderItem}
+            sliderWidth={600}
+            itemWidth={150}
+          />
+        </View>
+        <ScrollView showsVerticalScrollIndicator={false}>
+          <Restaurantes
+            image={restaurantsImages[0]}
+            infoRestaurants={infoRestaurants[0]}
+            navigateTo={this.handleNavigate}
+          />
+          <Restaurantes
+            image={restaurantsImages[1]}
+            infoRestaurants={infoRestaurants[1]}
+            navigateTo={this.handleNavigate}
+          />
+          <Restaurantes
+            image={restaurantsImages[2]}
+            infoRestaurants={infoRestaurants[2]}
+            navigateTo={this.handleNavigate}
+          />
+          <Restaurantes
+            image={restaurantsImages[3]}
+            infoRestaurants={infoRestaurants[3]}
+            navigateTo={this.handleNavigate}
+          />
+          <Restaurantes
+            image={restaurantsImages[4]}
+            infoRestaurants={infoRestaurants[4]}
+            navigateTo={this.handleNavigate}
+          />
         </ScrollView>
-    </Container>
+      </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  slide: { 
+  container: {
+    flex: 1,
+    padding: 15,
+  },
+  slide: {
     height: 100,
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   title: {
-    textAlign: 'center'
+    textAlign: 'center',
   },
   carouselImage: {
-    flexGrow:1,
-    height:null,
-    width:null,
+    flexGrow: 1,
+    height: null,
+    width: null,
     alignItems: 'baseline',
-    justifyContent:'center',
+    justifyContent: 'center',
   },
   gradient: {
     flex: 1,
-    justifyContent: "space-between",
-    flexDirection: "row",
+    justifyContent: 'space-between',
+    flexDirection: 'row',
     paddingTop: 10,
     paddingLeft: 15,
-    paddingRight: 15
-  }
+    paddingRight: 15,
+  },
 });
-
