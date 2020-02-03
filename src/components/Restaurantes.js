@@ -36,7 +36,7 @@ export default class Restaurantes extends Component {
 
               <View style={styles.gradeLocation}>
                 <View style={styles.icons}>{this.displayGrade(price)}</View>
-                <Text>{neigborhood}</Text>
+                <Text style={{fontFamily: "Roboto", color: "#717171"}}>{neigborhood}</Text>
               </View>
             </View>
           </View>
@@ -69,9 +69,9 @@ export default class Restaurantes extends Component {
 
   displayDistance(distance) {
     if (distance < 1000) {
-      return <Text>{distance} m</Text>;
+      return <Text style={{fontFamily: "Roboto", color: "#717171"}}>{distance} m</Text>;
     } else {
-      return <Text>{(distance / 1000).toFixed(1)} km</Text>;
+      return <Text style={{fontFamily: "Roboto", color: "#717171"}}>{(distance / 1000).toFixed(1)} km</Text>;
     }
   }
 }
@@ -95,6 +95,7 @@ const styles = StyleSheet.create({
     color: '#D06600',
     fontSize: 18,
     marginLeft: 5,
+    fontFamily: "Roboto"
   },
   review: {
     color: '#717171',
@@ -126,5 +127,6 @@ const styles = StyleSheet.create({
   },
   secondaryTextColor: {
     color: '#717171',
+    fontFamily: "Roboto"
   },
 });

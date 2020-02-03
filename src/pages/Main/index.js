@@ -8,6 +8,7 @@ import * as data from '../../assets/restaurants.json';
 import Restaurantes from '../../components/Restaurantes';
 
 const DATA = data.categories;
+
 const infoRestaurants = data.list;
 
 const carouselImages = [
@@ -36,9 +37,9 @@ _renderItem = ({item, index}) => {
 };
 
 export default class Main extends Component {
+  
   handleNavigate = () => {
     const {navigation} = this.props;
-    console.log(navigation);
     navigation.navigate('Login');
   };
 
@@ -50,7 +51,7 @@ export default class Main extends Component {
         }}>
         <LinearGradient colors={['#D06600', '#E69A09']} style={styles.gradient}>
           <IonIcon name="ios-menu" color="#fff" size={30} />
-          <Text style={{color: '#FFF', fontSize: 20}}>Restaurantes</Text>
+          <Text style={{color: '#FFF', fontSize: 20, fontFamily: "Roboto"}}>Restaurantes</Text>
           <IonIcon name="ios-options" color="#fff" size={30} />
         </LinearGradient>
       </View>
@@ -116,6 +117,7 @@ const styles = StyleSheet.create({
   },
   title: {
     textAlign: 'center',
+    fontFamily: "Roboto"
   },
   carouselImage: {
     flexGrow: 1,

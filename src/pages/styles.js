@@ -24,12 +24,14 @@ const styles = StyleSheet.create({
     color: '#FFF',
     fontWeight: 'bold',
     fontSize: 18,
+    fontFamily: "Roboto"
   },
   title: {
     color: '#FFF',
     fontSize: 40,
     position: 'absolute',
     top: 80,
+    fontFamily: "Roboto"
   },
   LinkContainer: {
     alignSelf: 'stretch',
@@ -41,6 +43,7 @@ const styles = StyleSheet.create({
     color: '#FFF',
     marginTop: 5,
     fontSize: 14,
+    fontFamily: "Roboto"
   },
   btnContainer: {
     padding: 5,
@@ -68,18 +71,21 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontWeight: 'bold',
     fontSize: 16,
+    fontFamily: "Roboto"
   },
   linkCadastro: {
     textAlign: 'center',
     color: '#FFF',
     fontWeight: 'bold',
     fontSize: 16,
+    fontFamily: "Roboto"
   },
   errorMsg: {
     marginLeft: 25,
     fontStyle: 'italic',
     color: '#cc2525',
     fontWeight: 'bold',
+    fontFamily: "Roboto"
   },
   backIcon: {
     position: 'absolute',

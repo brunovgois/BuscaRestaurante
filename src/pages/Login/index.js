@@ -3,13 +3,11 @@ import {
   View,
   Text,
   TextInput,
-  StyleSheet,
   TouchableHighlight,
 } from 'react-native';
 
 import LinearGradient from 'react-native-linear-gradient';
 import isEmail from 'validator/lib/isEmail';
-import {TextInputMask} from 'react-native-masked-text';
 import Icon from 'react-native-vector-icons/Feather';
 import styles from '../styles';
 
