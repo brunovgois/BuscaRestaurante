@@ -7,7 +7,7 @@ This project is the UI implementation in React Native of an App that finds resta
 1. Install React Native as described at [https://facebook.github.io/react-native/docs/getting-started.html#content](https://facebook.github.io/react-native/docs/getting-started.html#content)
 2. Clone this repository
 3. Run `npm install` or `yarn`, and all required components will be installed automatically
-4. Run `React-`
+4. Run `React-native run-android` to run your project on Android
 
 ## Screenshots
 ![](.github/screenshots/MAIN.jpg)
